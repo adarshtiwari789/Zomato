@@ -6,6 +6,7 @@ const foodpartnerSchema = new mongoose.Schema({
   username : String , 
   mobile_number : Number,
   address : String ,  
+  image : String , 
 });
 const FoodPartnerModel = mongoose.model('FoodPartner', foodpartnerSchema);      
 

@@ -2,6 +2,7 @@ const { usermodel } = require("../model/user.model")
 const foodpartner = require("../model/food-partner.model")
 const jwt = require('jsonwebtoken')
 const bcrypt = require("bcrypt")
+const image = require("../services/service.storage")
 
 const userRegister = async function (req, res) {
     const { email, password, username } = req.body
@@ -62,23 +63,50 @@ const userLogout = function (req , res) {
 //  food-partner 
 
 const foodpartnerRegister  = async function(req , res){
+    console.log(req.body)
     const {email , password , username , mobile_number , address   } = req.body
+        console.log(email)
     const isAccountAlreadyExists = await foodpartner.findOne({email})
-
+    console.log(isAccountAlreadyExists)
+    //here is the services of storage item like videio and image
     if (isAccountAlreadyExists) {
         return res.status(400).json({
-            message: "Food partner account already exists"
+            message: "Food partner account already exists above this code"
         })
     }
 
-    const hashpassword = await bcrypt.hash(password , 10)
-    const newfoodpartner = await foodpartner.create({
-        email , 
-        password : hashpassword ,
-        username ,
-        mobile_number , 
-        address  
-    })
+        const hashpassword = await bcrypt.hash(password , 10)
+
+        // handle optional file upload and make uploadedUrl available for the create call
+        let uploadedUrl = null
+        if (req.file) {
+            try {
+                // convert buffer to data URI - ImageKit accepts data URIs
+                const base64 = req.file.buffer.toString('base64')
+                const dataUri = `data:${req.file.mimetype};base64,${base64}`
+
+                const uploaded = await image.upload({
+                    file: dataUri,
+                    fileName: req.file.originalname,
+                    folder: '/foodpartners',
+                    useUniqueFileName: true,
+                })
+
+                uploadedUrl = uploaded.url
+            } catch (err) {
+                console.error('Image upload error (foodpartner):', err)
+                return res.status(500).json({ error: 'Image upload failed: ' + err.message })
+            }
+        }
+
+        const newfoodpartner = await foodpartner.create({
+            image: uploadedUrl,
+            email,
+            password: hashpassword,
+            username,
+            mobile_number,
+            address,
+        })
     const token = jwt.sign({_id : newfoodpartner._id} , 'shh')
     res.cookie('token' , token)
 
@@ -96,7 +124,7 @@ const foodpartnerRegister  = async function(req , res){
             })
         }
         const ispassword = await bcrypt.compare(password , isfoodpartner.password )
-        console.log(ispassword)
+        
         if(!ispassword){
             return res.status(301).json({
                 message : "password is not correct"
