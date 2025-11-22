@@ -1,21 +1,12 @@
-// Load .env as early as possible when this module is required
-require('dotenv').config();
+const { createClient } = require("@supabase/supabase-js");
 
-const ImageKit = require('imagekit');
+const supabase = createClient(
+  process.env.SUPABASE_URL,
+  process.env.SUPABASE_KEY
+);
 
-// Standardize environment variable names and use them here.
-// Use IMAGEKIT_PUBLIC_KEY, IMAGEKIT_PRIVATE_KEY, IMAGEKIT_URL_ENDPOINT in your .env
-const publicKey = process.env.IMAGEKIT_PUBLIC_KEY;
-const privateKey = "private_iRlIq0sHaT2zId8XJUo6qzA7SH4=";
-const urlEndpoint = process.env.IMAGEKIT_URL_ENDPOINT;
+module.exports = supabase;
 
-const image = new ImageKit({
-    publicKey: publicKey,
-    privateKey: privateKey,
-    urlEndpoint: urlEndpoint
-});
-
-module.exports = image;
 
 
 

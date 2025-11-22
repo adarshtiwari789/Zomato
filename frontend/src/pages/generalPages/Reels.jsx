@@ -52,7 +52,7 @@ useEffect(()=>{
 
       {videos.map((item) => (
         <section className="reel-item" key={item._id}>
-          {console.log(item.foodvideo)}
+       
           <video
             className="reel-video"
             src={item.foodvideo}

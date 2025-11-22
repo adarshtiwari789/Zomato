@@ -4,7 +4,7 @@ node_modules
 /yarn-debug.log*
 /yarn-error.log*
 es-errors
-backend/foodvideo/
+/foodvideo/
 
 
 # Production Build

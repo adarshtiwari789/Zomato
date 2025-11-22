@@ -1,36 +1,35 @@
 import React from 'react'
-import '../styles/variables.css'
-import '../styles/auth.css'
+import '../../styles/variables.css'
+import '../../styles/auth.css'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
-const FoodLogin = () => {
-    const navigate = useNavigate()
- async function  handelsubmit (e) {
+
+const UserLogin = () => {
+  const navigate = useNavigate()
+  async function  handelsubmit(e) {
   e.preventDefault()
   const email = e.target.email.value 
   const password = e.target.password.value
-
-
-  const response = await axios.post('http://localhost:3000/api/auth/food-partener/login', {
+  const response = await axios.post('http://localhost:3000/api/auth/user/login', {
     email , 
-    password, 
+    password 
   }  , {
     withCredentials : true 
   })
-  console.log(response.data)
-  navigate("/food-partner/home")
+  console.log(response.data)   
+  navigate('/user/home')
   
 }
   return (
     <div className="auth-page">
       <div className="auth-card">
-        <h2 className="auth-title">Food Partner Login</h2>
-        <p className="auth-sub">Access your partner dashboard</p>
+        <h2 className="auth-title">Welcome back</h2>
+        <p className="auth-sub">Log in to your account</p>
 
         <form className="auth-form" onSubmit={(e) => handelsubmit(e)}>
           <label className="auth-label">
             Email
-            <input className="auth-input" name="email" type="email" placeholder="partner@example.com" />
+            <input className="auth-input" name="email" type="email" placeholder="you@example.com" />
           </label>
 
           <label className="auth-label">
@@ -41,10 +40,10 @@ const FoodLogin = () => {
           <button className="auth-button" type="submit">Log in</button>
         </form>
 
-        <div className="auth-footer">Don't have an account? <a href="/food-partner/register">Sign up</a></div>
+        <div className="auth-footer">Don't have an account? <a href="/user/register">Sign up</a></div>
       </div>
     </div>
   )
 }
 
-export default FoodLogin
+export default UserLogin

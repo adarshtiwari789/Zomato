@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import UserRegister from '../pages/UserRegister';
-import UserLogin from '../pages/UserLogin';
-import FoodRegister from '../pages/FoodRegister';
-import FoodLogin from '../pages/FoodLogin';
+import UserRegister from '../pages/auth/UserRegister';
+import UserLogin from '../pages/auth/UserLogin';
+import FoodRegister from '../pages/auth/FoodRegister';
+import FoodLogin from '../pages/auth/FoodLogin';
 import Landing from '../pages/Landing';
 import Home from "../pages/generalPages/Home";
 import FoodpartnerHome from "../pages/createfood/FoodpartnerHome";

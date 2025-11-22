@@ -1,31 +1,38 @@
-import React from 'react'
-import '../styles/variables.css'
-import '../styles/auth.css'
+import React, { useState } from 'react'
+import '../../styles/variables.css'
+import '../../styles/auth.css'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
 const FoodRegister = () => {
   const navigate = useNavigate()
  async function  handelsubmit(e) {
-  e.preventDefault()
-  const email = e.target.email.value 
-  const password = e.target.password.value
-  const username = e.target.username.value
-  const mobile_number = e.target.mobile_number.value
-  const address = e.target.address.value
+   e.preventDefault();
 
-  const response = await axios.post('http://localhost:3000/api/auth/food-partener/register', {
-    email , 
-    password, 
-    username , 
-    mobile_number , 
-    address 
-  }  , {
-    withCredentials : true 
+  const formData = new FormData();
+  formData.append("email", e.target.email.value);
+  formData.append("password", e.target.password.value);
+  formData.append("username", e.target.username.value);
+  formData.append("mobile_number", e.target.mobile_number.value);
+  formData.append("address", e.target.address.value);
+  formData.append("image", e.target.image.files[0]); // ✔ FILE GOES HERE
+
+  const response = await axios.post(
+    "http://localhost:3000/api/auth/food-partener/register",
+    formData,
+    {
+      withCredentials: true,
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    }
+  ).then((res)=>{
+    console.log(res)
+    navigate('/food-partner/home')
+  }).catch((err)=>{
+    console.log(err)
   })
-  console.log(response.data)
-  navigate("/food-partner/home")
-  
+    
 }
   return (
     <div className="auth-page">
@@ -54,6 +61,10 @@ const FoodRegister = () => {
            <label className="auth-label">
             Password : 
             <input className="auth-input" name="password"  placeholder="Enter password" />
+          </label>
+           <label className="auth-label">
+            image : 
+            <input className="auth-input" type='file' name="image"  placeholder="Enter password" />
           </label>
           <button className="auth-button" type="submit">Create account</button>
         </form>

@@ -1,6 +1,6 @@
 import React from 'react'
-import '../styles/variables.css'
-import '../styles/auth.css'
+import '../../styles/variables.css'
+import '../../styles/auth.css'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 const UserRegister = () => {
