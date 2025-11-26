@@ -93,7 +93,6 @@ const foodpartnerRegister = async function (req, res) {
                 });
 
             if (error) {
-                console.log(error);
                 return res.status(400).json({ message: "Error while uploading image", error });
             }
 
@@ -132,7 +131,6 @@ const foodpartnerRegister = async function (req, res) {
 const foodpartnerLogin = async function (req, res) {
     const { email, password } = req.body
     const isfoodpartner = await foodpartner.findOne({ email })
-    console.log(isfoodpartner);
 
     if (!isfoodpartner) {
         return res.status(301).json({

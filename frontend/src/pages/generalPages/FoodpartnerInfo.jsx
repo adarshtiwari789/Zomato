@@ -9,13 +9,13 @@ const FoodpartnerInfo = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  console.log(id);
+
   
   useEffect(()=>{
     setLoading(true);
     axios.get(`http://localhost:3000/api/foodpartner/${id}`, { withCredentials: true })
       .then(respon => {
-        console.log(respon.data);
+      
         setFoodpar(respon.data.foodPartner);
         setVideo(respon.data.foodPartner.foodItems || []);
        

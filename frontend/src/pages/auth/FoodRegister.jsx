@@ -27,10 +27,9 @@ const FoodRegister = () => {
       },
     }
   ).then((res)=>{
-    console.log(res)
+    
     navigate('/food-partner/home')
   }).catch((err)=>{
-    console.log(err)
   })
     
 }

@@ -17,7 +17,7 @@ const FoodLogin = () => {
   }  , {
     withCredentials : true 
   })
-  console.log(response.data)
+   
   navigate("/food-partner/home")
   
 }

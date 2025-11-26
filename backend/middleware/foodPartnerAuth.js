@@ -19,7 +19,7 @@ const isfoodpartner = async function (req, res , next) {
         
       next();
     } catch (error) {
-        console.log(error)
+        
         return res.status(501).json({
             message: 'something is wrong with middleware '
 
@@ -43,7 +43,7 @@ try{   const decoded  = jwt.verify(token , "shh")
 
    return next()
         }catch(error){
-    console.log(error.message)
+    
    }
    
 

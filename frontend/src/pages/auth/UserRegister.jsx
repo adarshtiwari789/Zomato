@@ -17,7 +17,7 @@ const UserRegister = () => {
       email, 
       password ,
     },{withCredentials : true})
-    console.log(response.data)
+
     navigat('/user/home')
 
   }
