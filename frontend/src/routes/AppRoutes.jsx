@@ -8,7 +8,7 @@ import Landing from '../pages/Landing';
 import Home from "../pages/generalPages/Home";
 import FoodpartnerHome from "../pages/createfood/FoodpartnerHome";
 import FoodpartnerInfo from "../pages/generalPages/FoodpartnerInfo"
-
+import Savevideo from "../pages/generalPages/Savevideo"
 const AppRoutes = () => {
     return (
         <Router>
@@ -21,6 +21,8 @@ const AppRoutes = () => {
                 <Route path="/user/home" element={<Home/>} />
                 <Route path="/food-partner/home" element = {<FoodpartnerHome/>} />
                 <Route path = "/food-partner/:id" element= {<FoodpartnerInfo/>} />
+                <Route path = "/user/save" element= {<Savevideo/>} />
+
             </Routes>
         </Router>
     );

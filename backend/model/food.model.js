@@ -13,6 +13,14 @@ const foodSchema = new mongoose.Schema({
     },
     description: {
         type: String
+    },
+      likeCount: {
+        type: Number,
+        default: 0
+    },
+    savesCount: {
+        type: Number,
+        default: 0
     }
 });
     const food = mongoose.model('food' , foodSchema)

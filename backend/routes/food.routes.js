@@ -12,5 +12,13 @@ router.post('/create' , foodmiddle.isfoodpartner, upload.single("video") ,foodco
 
 router.get("/getfood" , foodmiddle.isuser , foodcontroller.getfood)
 
+router.post("/like" , foodmiddle.isuser , foodcontroller.likeFood)
+
+router.post('/save',
+    foodmiddle.isuser,
+ foodcontroller.savefood
+)
+
+router.get('/save',foodmiddle.isuser,foodcontroller.getsavedfood)
 
 module.exports = router

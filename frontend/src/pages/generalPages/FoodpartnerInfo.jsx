@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import '../../styles/reels.css'
 const FoodpartnerInfo = () => {
   const { id } = useParams();
   const [video, setVideo] = useState([]);
