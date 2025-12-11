@@ -1,4 +1,11 @@
 {
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "node app.js"
+  },
   "dependencies": {
     "@supabase/supabase-js": "^2.84.0",
     "bcrypt": "^6.0.0",
@@ -12,3 +19,4 @@
     "multer": "^2.0.2"
   }
 }
+
