@@ -14,7 +14,7 @@ const FoodpartnerInfo = () => {
   
   useEffect(()=>{
     setLoading(true);
-    axios.get(`http://localhost:3000/api/foodpartner/${id}`, { withCredentials: true })
+    axios.get(`https://zomato-aqgm.onrender.com/api/foodpartner/${id}`, { withCredentials: true })
       .then(respon => {
       
         setFoodpar(respon.data.foodPartner);

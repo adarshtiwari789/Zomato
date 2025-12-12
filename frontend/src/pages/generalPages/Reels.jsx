@@ -8,7 +8,7 @@ export default function Reels() {
 const [videos , setvideos] = useState([])
 
 useEffect(()=>{
-  axios.get('http://localhost:3000/api/food/getfood' , {withCredentials : true } )
+  axios.get('https://zomato-aqgm.onrender.com/api/food/getfood' , {withCredentials : true } )
   .then(respon => {
     setvideos(respon.data.fooditems)
   })

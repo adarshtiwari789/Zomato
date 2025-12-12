@@ -18,7 +18,7 @@ const FoodRegister = () => {
   formData.append("image", e.target.image.files[0]); // ✔ FILE GOES HERE
 
   const response = await axios.post(
-    "http://localhost:3000/api/auth/food-partener/register",
+    "https://zomato-aqgm.onrender.com/api/auth/food-partener/register",
     formData,
     {
       withCredentials: true,

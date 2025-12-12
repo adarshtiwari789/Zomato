@@ -9,7 +9,7 @@ const Home = () => {
     // Autoplay behavior is handled inside ReelFeed
 
     useEffect(() => {
-        axios.get("http://localhost:3000/api/food/getfood", { withCredentials: true })
+        axios.get("https://zomato-aqgm.onrender.com/api/food/getfood", { withCredentials: true })
             .then(response => {
 
 
@@ -21,7 +21,7 @@ const Home = () => {
     // Using local refs within ReelFeed; keeping map here for dependency parity if needed
 
     async function likeVideo(item) {
-        const response = await axios.post("http://localhost:3000/api/food/like", { foodId: item._id }, {withCredentials: true})
+        const response = await axios.post("https://zomato-aqgm.onrender.com/api/food/like", { foodId: item._id }, {withCredentials: true})
         if(response.data.like){
             console.log("Video liked");
             setVideos((prev) => prev.map((v) => v._id === item._id ? { ...v, likeCount: v.likeCount + 1 } : v))
@@ -33,7 +33,7 @@ const Home = () => {
     }
 
     async function saveVideo(item) {
-        const response = await axios.post("http://localhost:3000/api/food/save", { foodId: item._id }, { withCredentials: true })
+        const response = await axios.post("https://zomato-aqgm.onrender.com/api/food/save", { foodId: item._id }, { withCredentials: true })
         
         if(response.data.save){
             setVideos((prev) => prev.map((v) => v._id === item._id ? { ...v, savesCount: v.savesCount + 1 } : v))

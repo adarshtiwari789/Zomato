@@ -6,7 +6,7 @@ import Navbar from '../../../component/Navbar';
 const save = () => {
     const [Video , setVideo] = useState([])
    useEffect(()=>{
-    const response = axios.get('http://localhost:3000/api/food/save' , {withCredentials: true})
+    const response = axios.get('https://zomato-aqgm.onrender.com/api/food/save' , {withCredentials: true})
     .then((res)=>{
       console.log(res.data.savedFoods)
     const savedvideo = res.data.savedFoods.map((item)=>({

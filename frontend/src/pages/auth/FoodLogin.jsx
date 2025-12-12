@@ -11,7 +11,7 @@ const FoodLogin = () => {
   const password = e.target.password.value
 
 
-  const response = await axios.post('http://localhost:3000/api/auth/food-partener/login', {
+  const response = await axios.post('https://zomato-aqgm.onrender.com/api/auth/food-partener/login', {
     email , 
     password, 
   }  , {

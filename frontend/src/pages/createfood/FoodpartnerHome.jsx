@@ -38,7 +38,7 @@ function FoodpartnerHome() {
       setProgress(0)
 
       // POST to dummy route for development/testing; change to /api/food/create for production
-      const endpoint = 'http://localhost:3000/api/food/create'
+      const endpoint = 'https://zomato-aqgm.onrender.com/api/food/create'
 
       await axios.post(endpoint, fd, {
         withCredentials: true,
