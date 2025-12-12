@@ -11,7 +11,7 @@ import FoodpartnerInfo from "../pages/generalPages/FoodpartnerInfo"
 import Savevideo from "../pages/generalPages/Savevideo"
 const AppRoutes = () => {
     return (
-        <Router>
+    
             <Routes>
                 <Route path="/" element= {<Landing/> } />
                 <Route path="/user/register" element={<UserRegister/>} />
@@ -24,7 +24,7 @@ const AppRoutes = () => {
                 <Route path = "/user/save" element= {<Savevideo/>} />
 
             </Routes>
-        </Router>
+
     );
 };
 
