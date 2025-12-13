@@ -16,8 +16,10 @@ const UserLogin = () => {
   }  , {
     withCredentials : true 
   })
- 
-  navigate('#/user/home')
+  console.log(response)
+  if(response){
+  navigate('/user/home')
+  }
   
 }
   return (
@@ -40,7 +42,7 @@ const UserLogin = () => {
           <button className="auth-button" type="submit">Log in</button>
         </form>
 
-        <div className="auth-footer">Don't have an account? <a href="#/user/register">Sign up</a></div>
+        <div className="auth-footer">Don't have an account? <a href="/user/register">Sign up</a></div>
       </div>
     </div>
   )
