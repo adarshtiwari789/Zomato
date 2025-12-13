@@ -14,7 +14,7 @@ const getFoodpartner = require('./controllers/food-partner.controller');
 
 
 app.use(cors({
-   origin : ["http://localhost:5173", "https://zomato-aqgm.onrender.com/"], 
+   origin : ["http://localhost:5173", "https://zomato-frontend-tibd.onrender.com"], 
    credentials : true 
 }))
 app.use(express.json());
