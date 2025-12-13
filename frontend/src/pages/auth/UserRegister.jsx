@@ -48,7 +48,7 @@ const UserRegister = () => {
           <button className="auth-button" type="submit">Create account</button>
         </form>
 
-        <div className="auth-footer">Already have an account? <a href="/user/login">Log in</a></div>
+        <div className="auth-footer">Already have an account? <a href="#/user/login">Log in</a></div>
       </div>
     </div>
   )

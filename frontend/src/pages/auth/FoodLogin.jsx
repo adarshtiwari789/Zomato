@@ -41,7 +41,7 @@ const FoodLogin = () => {
           <button className="auth-button" type="submit">Log in</button>
         </form>
 
-        <div className="auth-footer">Don't have an account? <a href="/food-partner/register">Sign up</a></div>
+        <div className="auth-footer">Don't have an account? <a href="#/food-partner/register">Sign up</a></div>
       </div>
     </div>
   )

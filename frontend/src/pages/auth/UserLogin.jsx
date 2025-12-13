@@ -40,7 +40,7 @@ const UserLogin = () => {
           <button className="auth-button" type="submit">Log in</button>
         </form>
 
-        <div className="auth-footer">Don't have an account? <a href="/user/register">Sign up</a></div>
+        <div className="auth-footer">Don't have an account? <a ="/user/register">Sign up</a></div>
       </div>
     </div>
   )

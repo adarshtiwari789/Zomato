@@ -69,7 +69,7 @@ const FoodRegister = () => {
         </form>
 
 
-        <div className="auth-footer">Already registered? <a href="/food-partner/foodlogin">Log in</a></div>
+        <div className="auth-footer">Already registered? <a href="#/food-partner/foodlogin">Log in</a></div>
       </div>
     </div>
   )
