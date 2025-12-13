@@ -18,7 +18,7 @@ const UserRegister = () => {
       password ,
     },{withCredentials : true})
 
-    navigat('/user/home')
+    navigat('#/user/home')
 
   }
   return (

@@ -17,7 +17,7 @@ const UserLogin = () => {
     withCredentials : true 
   })
  
-  navigate('/user/home')
+  navigate('#/user/home')
   
 }
   return (
