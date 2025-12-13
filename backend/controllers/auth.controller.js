@@ -24,7 +24,7 @@ const userRegister = async function (req, res) {
     const token = jwt.sign({ _id: user._id }, 'shh')
     res.cookie("token", token)
     return res.status(201).json({
-        "message": "user created "
+        "message": "user created ",
     })
 
 
