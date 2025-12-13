@@ -14,7 +14,7 @@ const getFoodpartner = require('./controllers/food-partner.controller');
 
 
 app.use(cors({
-   origin : ["http://localhost:5173", "https://zomato-eight-black.vercel.app/"], 
+   origin : ["http://localhost:5173", "https://zomato-eight-black.vercel.app"], 
    credentials : true 
 }))
 app.use(express.json());
