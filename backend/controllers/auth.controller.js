@@ -35,7 +35,7 @@ const userLogin = async function (req, res) {
     const user = await usermodel.findOne({ email })
 
     if (!user) {
-        return res.status(301).json({
+        return res.status(404).json({
             message: "not authenticate please register"
         })
     }
@@ -44,13 +44,18 @@ const userLogin = async function (req, res) {
     const ispassword = await bcrypt.compare(password, user.password)
 
     if (!ispassword) {
-        return res.status(301).json({
+        return res.status(404).json({
             message: "something went wrong"
         })
     }
 
     const token = jwt.sign({ _id: user._id }, "shh")
-    res.cookie("token", token)
+   res.cookie("token", token, {
+    httpOnly: true,
+    secure: true,       // REQUIRED for HTTPS
+    sameSite: "None",   // REQUIRED for cross-origin
+    maxAge: 7 * 24 * 60 * 60 * 1000
+  });
     return res.status(201).json({
         message: "login successfull"
     })
